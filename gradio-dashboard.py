@@ -93,6 +93,8 @@ with gr.Blocks(theme = gr.themes.Soft(primary_hue="indigo")) as dashboard:
     gr.Markdown("## Recommendations")
     output = gr.Gallery(label = "Recommended books", columns = 6, rows = 2)
 
+    gr.Markdown("Made with ❤️ using Gradio and LangChain")
+    
     submit_button.click(fn = recommend_books,
                         inputs = [user_query, category_dropdown, tone_dropdown],
                         outputs = output)
