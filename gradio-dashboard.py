@@ -81,7 +81,7 @@ categories = ["All"] + sorted(books["simple_categories"].unique())
 tones = ["All"] + ["Happy", "Surprising", "Angry", "Suspenseful", "Sad"]
 
 with gr.Blocks(theme = gr.themes.Soft(primary_hue="indigo")) as dashboard:
-    gr.Markdown("# Semantic book recommender")
+    gr.Markdown("# READVIBE - A Semantic Book Recommender")
 
     with gr.Row():
         user_query = gr.Textbox(label = "Please enter a description of a book:",
