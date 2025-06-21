@@ -20,7 +20,12 @@ raw_documents = TextLoader("tagged_description.txt", encoding="utf-8").load()
 text_splitter = CharacterTextSplitter(separator="\n", chunk_size=0, chunk_overlap=0)
 documents = text_splitter.split_documents(raw_documents)
 embedding_model = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
-db_books = Chroma.from_documents(documents, embedding=embedding_model)
+db_books = Chroma.from_documents(
+    documents,
+    embedding=embedding_model,
+    persist_directory="./chroma_db"  
+)
+db_books.persist() 
 
 def retrieve_semantic_recommendations(
         query: str,
